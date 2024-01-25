@@ -1,16 +1,21 @@
 import { Data } from "../Data/Data";
+import Card from "./Moviescard/Card";
+import "../Body/Body.css";
 
 const Body = () => {
-  const Div = Data.map((obj) => (
-    <div key={obj.id}>
-      {" "}
-      <p>Name : {obj.movie}</p>
-      <img src={obj.image}></img>
-      <a href={obj.imdb_url}>Linke for</a>
-      <p>Rating : {obj.rating}</p>
+  return (
+    <div className="div">
+      {Data.map((obj) => (
+        <Card
+          key={obj.id}
+          image={obj.image}
+          Name={obj.movie}
+          link={obj.imdb_url}
+          rating={obj.rating}
+        />
+      ))}
     </div>
-  ));
-  return <>{Div}</>;
+  );
 };
 
 export default Body;
