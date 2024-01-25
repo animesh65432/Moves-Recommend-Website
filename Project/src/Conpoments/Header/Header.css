@@ -5,4 +5,15 @@
   width: 100%;
   padding: auto;
   background-color: cadetblue;
+  display: flex;
+  justify-content: space-between; /* Add this line to evenly space the h1 and button */
+}
+
+.but {
+  text-align: left;
+  margin-left: auto;
+  padding: auto;
+  height: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
 }

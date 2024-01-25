@@ -42,3 +42,18 @@ export const Images = [
       "https://th.bing.com/th/id/OIP.6WES5nhdyXVDPrxHG0vCvgHaKz?rs=1&pid=ImgDetMain",
   },
 ];
+
+export const Dummy_Data = [
+  {
+    id: "1",
+  },
+  { id: "2" },
+  { id: "3" },
+  { id: "4" },
+  { id: "5" },
+  { id: "6" },
+  { id: "7" },
+  { id: "8" },
+  { id: "9" },
+  { id: "10" },
+];

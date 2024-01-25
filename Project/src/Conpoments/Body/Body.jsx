@@ -4,6 +4,7 @@ import { Images, url } from "../Data/Data";
 import Card from "./Moviescard/Card";
 import "../Body/Body.css";
 import axios from "axios";
+import Shimmer from "./Shimmer/Shimmer";
 const Body = () => {
   const [MoviesName, SetMoviesName] = useState([]);
   const [FilterArray, SetFilterArray] = useState([]);
@@ -25,6 +26,7 @@ const Body = () => {
     let Data = await axios.get(url);
 
     let DataArray = Data.data;
+    console.log(DataArray);
 
     const MoviesArray = DataArray.map((obj, index) => {
       return { ...obj, image: Images[index].image };
@@ -35,7 +37,7 @@ const Body = () => {
   };
 
   if (MoviesName.length === 0) {
-    return <h1> Loading</h1>;
+    return <Shimmer />;
   }
 
   return (
