@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Data } from "../Data/Data";
+import { Images, url } from "../Data/Data";
 import Card from "./Moviescard/Card";
 import "../Body/Body.css";
-
+import axios from "axios";
 const Body = () => {
-  const [MoviesName, SetMoviesName] = useState(Data);
-  const [FilterArray, SetFilterArray] = useState(Data);
+  const [MoviesName, SetMoviesName] = useState([]);
+  const [FilterArray, SetFilterArray] = useState([]);
   const [UserInput, SetUserInput] = useState("");
 
   const FilterArrayMethod = () => {
@@ -16,6 +16,27 @@ const Body = () => {
 
     SetFilterArray(FilterArray);
   };
+
+  useEffect(() => {
+    fecthdata();
+  }, []);
+
+  const fecthdata = async () => {
+    let Data = await axios.get(url);
+
+    let DataArray = Data.data;
+
+    const MoviesArray = DataArray.map((obj, index) => {
+      return { ...obj, image: Images[index].image };
+    });
+
+    SetFilterArray(MoviesArray);
+    SetMoviesName(MoviesArray);
+  };
+
+  if (MoviesName.length === 0) {
+    return <h1> Loading</h1>;
+  }
 
   return (
     <>
