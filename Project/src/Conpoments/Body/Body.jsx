@@ -5,6 +5,7 @@ import Card from "./Moviescard/Card";
 import "../Body/Body.css";
 import axios from "axios";
 import Shimmer from "./Shimmer/Shimmer";
+import Working from "../Working";
 const Body = () => {
   const [MoviesName, SetMoviesName] = useState([]);
   const [FilterArray, SetFilterArray] = useState([]);
@@ -59,6 +60,8 @@ const Body = () => {
             rating={obj.rating}
           />
         ))}
+
+        {FilterArray.length === 0 && <Working />}
       </div>
     </>
   );
